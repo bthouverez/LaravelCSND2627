@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royaume des Dragons — Template HTML/CSS</title>
+  <style>
+    :root {
+      --bg-dark: #0d090a;
+      --bg-card: #191114;
+      --accent-fire: #ff4d1c;
+      --accent-gold: #ffb347;
+      --text-main: #f5efe6;
+      --text-muted: #b8a89e;
+      --border-subtle: rgba(255, 179, 71, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top center, rgba(255, 77, 28, 0.22), transparent 55%),
+        var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 6%;
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      background: rgba(13, 9, 10, 0.85);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      margin-left: 1.75rem;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-fire);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5.5rem 6% 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 77, 28, 0.16);
+      border: 1px solid rgba(255, 77, 28, 0.45);
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #fff5e4 10%, var(--accent-gold) 55%, var(--accent-fire) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-fire), var(--accent-gold));
+      color: #140b08;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(255, 77, 28, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 77, 28, 0.45);
+    }
+
+    .section {
+      padding: 3rem 6% 5rem;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      margin-bottom: 1.75rem;
+      color: var(--accent-gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 1.6rem;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-fire);
+    }
+
+    .card .tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-fire);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 6%;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Draconis</div>
+    <nav>
+      <a href="#espèces">Espèces</a>
+      <a href="#lore">Chroniques</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="badge">Édition Cendres &amp; Or</span>
+    <h1>L’éveil des seigneurs des cieux</h1>
+    <p>
+      Un template HTML et CSS léger, responsive et sans dépendance externe pour un site de jeu,
+      d’univers fantasy ou de collection de dragons.
+    </p>
+    <a href="#espèces" class="btn">Explorer les dragons</a>
+  </section>
+
+  <section id="espèces" class="section">
+    <h2 class="section-title">Espèces légendaires</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Élément Feu</div>
+        <h3>Pyrodrake des Volcans</h3>
+        <p>Écailles couleur braise, crête incandescente et souffle capable de fondre l’obsidienne.</p>
+      </article>
+      <article class="card">
+        <div class="tag">Élément Brume</div>
+        <h3>Wyverne des Cimes</h3>
+        <p>Agile et silencieuse, elle plane au-dessus des nuages et niche dans les falaises abruptes.</p>
+      </article>
+      <article class="card">
+        <div class="tag">Élément Céleste</div>
+        <h3>Dragon d’Or Oriental</h3>
+        <p>Serpentin et majestueux, gardien des rivières sacrées et des vents d’automne.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer id="lore">
+    Template HTML/CSS libre d’utilisation • Personnalisez couleurs, polices et illustrations à volonté.
+  </footer>
+</body>
+</html>

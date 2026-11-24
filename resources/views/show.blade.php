@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Un dragon</title>
-</head>
-<body>
+@extends('layout')
+
+
+@section('title') 
+    {{ $dragon->name }}
+@endsection
+
+
+
+@section('content')
     <ul>
         <img width="150" style="float: right"
             src="{{ $dragon->image_path }}"    
@@ -18,6 +20,4 @@
         <li>{{ $dragon->born_at }}</li>
         <li>{{ $dragon->is_in_team ? 'Oui' : 'Non' }}</li>
     </ul>
-
-</body>
-</html>
+@endsection
