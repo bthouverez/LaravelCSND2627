@@ -8,6 +8,9 @@ use Illuminate\Validation\Rule;
 Une route attend "en paramètres" une URL et un type de requête HTTP
 */
 
+Route::get('/test', function() {
+    return view('layout-amber');
+});
 
 Route::get('/', function () {
     return view('welcome');

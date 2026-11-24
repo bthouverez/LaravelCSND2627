@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout-amber')
 
 
 @section('title') 
