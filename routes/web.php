@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Dragon;
-
+use Illuminate\Validation\Rule;
 
 /*
 Une route attend "en paramètres" une URL et un type de requête HTTP
@@ -54,8 +54,6 @@ Route::get('/dragons', function() {
 });
 
 
-
-
 Route::get('/dragons/create', function() {
     return view('create');
 });
@@ -70,3 +68,28 @@ Route::get('/dragons/{id}', function(int $id) {
 });
 
 
+Route::post('/dragons', function() {
+
+    // Valider les données
+    request()->validate([
+        'name' => ['required', 'min:3', 'max:20', 'unique:dragons'],
+        'level' => ['required', 'integer'],
+        'height' => ['required', 'decimal:2'],
+        'born_at' => ['required', 'date', Rule::date()->beforeOrEqual(today())],
+        'type' => ['required', Rule::in(['speed', 'strength', 'technical'])],
+
+    ]);
+
+
+    $d = new Dragon;
+    $d->name = request('name');
+    $d->level = request('level');
+    $d->height = request('height');
+    $d->born_at = request('born_at');
+    $d->type = request('type');
+    $d->image_path = request('image_path');
+    $d->is_in_team = request('is_in_team') ? true : false;
+    $d->save();
+
+    return redirect('/dragons/'.$d->id);
+});

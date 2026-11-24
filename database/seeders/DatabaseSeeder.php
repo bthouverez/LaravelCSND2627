@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-          $d = new Dragon;
+        $d = new Dragon;
         $d->name = 'Astalos_Prince_Orage';
         $d->type = 'technical';
         $d->level = 5;
